@@ -214,48 +214,7 @@
             </div>
         </section>
 
-        <!-- Inline JavaScript -->
-        <script>
-            document.getElementById("contact-form").addEventListener("submit", function (event) {
-                event.preventDefault(); // Prevent the default form submission
-                const form = event.target;
-                const formData = new FormData(form);
-
-                fetch(form.action, {
-                    method: "POST",
-                    body: formData,
-                })
-                    .then(response => {
-                        // Check if the response was successful (status 200 or 204)
-                        if (!response.ok) {
-                            // If the response is not OK (status not 2xx), throw an error
-                            throw new Error(`Form submission failed with status: ${response.status} ${response.statusText}`);
-                        }
-
-                        // Handle successful submission: response could be 204 (No Content)
-                        if (response.status === 204) {
-                            console.log("Form submitted successfully with no content returned.");
-                            alert("Thank you for your message!"); // Success message
-                        } else {
-                            // If the response has content, try to parse it
-                            return response.json();
-                        }
-                    })
-                    .then(data => {
-                        // If there was data returned, log it (although Formspree doesn't return content in success)
-                        if (data) {
-                            console.log("Form submitted successfully with response data:", data);
-                        }
-                    })
-                    .catch(error => {
-                        // Detailed error logging
-                        console.error("There was a problem with the form submission:", error);
-                        alert("Oops! There was an error submitting the form. Please try again later."); // Error message
-                    });
-            });
-
-
-        </script>
+       
 
 
 
