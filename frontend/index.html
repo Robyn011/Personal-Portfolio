@@ -106,7 +106,7 @@
                         </div>
                     </div>
                     <div class="about__body">
-                        <h3 class="about__title">UI/UX Designer with 1 Year Experience</h3>
+                        <h3 class="about__title">Front-end Developer with 1 Year of Experience</h3>
                         <p class="about__description">
                             I specialize in landing pages, website, app, and product design with a focus on
                             user-friendly and innovative approaches.
@@ -210,11 +210,47 @@
                     <div class="form__group">
                         <button type="submit" class="btn btn--primary"><i class="bx bx-send"></i> Send</button>
                     </div>
+                    <!-- Success and Error Messages -->
+                    <div id="form-messages" class="form__messages"></div>
                 </form>
             </div>
         </section>
 
-       
+        <script>
+            // Handle form submission
+            document.getElementById("contact-form").addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                const form = this;
+                const formData = new FormData(form);
+                const formMessages = document.getElementById("form-messages");
+
+                fetch(form.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        Accept: "application/json"
+                    }
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            // Display success message
+                            formMessages.innerHTML = `<p class="form__success">Thank you! Your message has been sent successfully.</p>`;
+                            form.reset(); // Reset form fields
+                        } else {
+                            // Display error message
+                            formMessages.innerHTML = `<p class="form__error">Oops! Something went wrong. Please try again later.</p>`;
+                        }
+                    })
+                    .catch(() => {
+                        // Handle fetch errors
+                        formMessages.innerHTML = `<p class="form__error">Oops! There was an error submitting the form. Please check your internet connection and try again.</p>`;
+                    });
+            });
+        </script>
+
+
+
 
 
 
@@ -239,8 +275,6 @@
         <!-- Main Script -->
 
 
-
-        <script src="assets/js/main.js"></script>
 
 
 </body>
