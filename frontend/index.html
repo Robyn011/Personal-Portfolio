@@ -24,27 +24,47 @@
 
 <body>
     <!-- Header -->
-    <header id="l-header" class="l-header">
-        <div class="container">
-            <nav class="nav">
-                <a href="index.html" class="nav__brand">Robyn.</a>
-                <div id="nav-menu" class="nav__menu">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
-                        <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
-                        <li class="nav__item">
-                            <a href="#contact" class="btn btn--primary">
-                                <i class="bx bx-paper-plane"></i> Let's Talk
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="nav__close" id="nav-close"><i class="bx bx-x"></i></div>
-                </div>
-                <div class="nav__open" id="nav-open"><i class="bx bx-menu-alt-right"></i></div>
-            </nav>
-        </div>
+    <header class="l-header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__brand">Robyn.</a>
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
+                    <li class="nav__item">
+                        <a href="#contact" class="btn btn--primary">
+                            <i class="bx bx-paper-plane"></i> Let's Talk
+                        </a>
+                    </li>
+                </ul>
+                <span class="nav__close">&times;</span>
+            </div>
+            <span class="nav__open">&#9776;</span>
+        </nav>
+
+
+        <script>// Navigation menu open and close functionality
+            document.addEventListener('DOMContentLoaded', () => {
+                const navOpen = document.querySelector('.nav__open');
+                const navClose = document.querySelector('.nav__close');
+                const navMenu = document.querySelector('.nav__menu');
+
+                navOpen.addEventListener('click', () => {
+                    navMenu.classList.add('nav__menu--open');
+                });
+
+                navClose.addEventListener('click', () => {
+                    navMenu.classList.remove('nav__menu--open');
+                });
+            });
+
+
+        </script>
+
+
+
     </header>
 
     <main class="l-main">
@@ -129,16 +149,16 @@
                 <div class="grid services__wrapper">
                     <div class="service__card">
                         <span class="service__icon"><i class="bx bx-mobile-alt"></i></span>
-                        <h3 class="service__title">Mobile UI/UX Design</h3>
+                        <h3 class="service__title">Frontend Developer</h3>
                         <p class="service__description">
-                            Creating intuitive and beautiful designs for mobile applications.
+                            Creating intuitive and beautiful designs for web applications.
                         </p>
                     </div>
                     <div class="service__card">
                         <span class="service__icon"><i class="bx bx-layer"></i></span>
-                        <h3 class="service__title">Product Design</h3>
+                        <h3 class="service__title">Backend Developer</h3>
                         <p class="service__description">
-                            Combining design and strategy to craft exceptional user experiences.
+                            Adding functionality to the Front-end of web applications
                         </p>
                     </div>
                 </div>
