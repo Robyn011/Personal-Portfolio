@@ -665,14 +665,11 @@ body {
 .l-footer {
   background-color: var(--bg-darker);
   padding: 5rem 0 3rem;
-}
-
-.footer__wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  text-align: center; /* Align text */
 }
 
 .footer__name {
@@ -680,14 +677,24 @@ body {
   margin-bottom: 1rem;
 }
 
-.footer__wrapper .social {
+.social__list {
+  display: flex;
+  gap: 1rem; /* Add spacing between social icons */
+  justify-content: center; /* Center horizontally */
   margin-top: 2.5rem;
   margin-bottom: 5rem;
+  padding: 0;
+  list-style: none; /* Remove default list styles */
+}
+
+.footer__description {
+  margin-top: 1rem;
 }
 
 .footer__copyright {
   font-size: var(--fs-sm);
 }
+
 
 /* 13. Scrollbar
 ----------------------------------------------------------------------------
